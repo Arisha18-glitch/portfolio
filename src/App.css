@@ -894,7 +894,7 @@
 }
 
 .phigh li::before {
-  content: '—';
+  content: '◀';
   color: var(--gold);
   flex-shrink: 0;
   font-size: 0.72rem;

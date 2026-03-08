@@ -376,7 +376,7 @@ export default function App() {
             <FadeIn delay={100}>
               <p className="ap">I'm <strong>Syeda Arisha</strong>, a Software Engineer with a broad foundation across AI, systems programming, mobile development, and web technologies.</p>
               <p className="ap">My work spans <strong>machine learning pipelines</strong>, <strong>real-time 3D web experiences</strong>, <strong>embedded systems</strong>, and <strong>full-stack mobile apps</strong>. I approach every project with a focus on clean architecture and thoughtful design.</p>
-              <p className="ap">From a DDoS detection system  to a voice-responsive embedded assistant,Each project reflects a commitment to technical depth and practical impact.</p>
+              <p className="ap">From a DDoS detection system  to a voice-responsive embedded assistant, Each project reflects a commitment to technical depth and practical impact.</p>
               <div className="stats">
                 <AnimatedStat value="10+" label="Projects Completed" />
                 <AnimatedStat value="99.57%" label="DDoS Detection Accuracy" />
