@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Inter:wght@300;400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box
+}
+
+:root {
+    --bg: #f5f0eb;
+    --bg2: #ece6df;
+    --surface: #ffffff;
+    --surface2: #faf8f5;
+    --border: rgba(0, 0, 0, 0.06);
+    --border2: rgba(0, 0, 0, 0.1);
+    --border3: rgba(0, 0, 0, 0.04);
+    --gold: #9a7b4f;
+    --gold2: #b8935a;
+    --gold-light: rgba(154, 123, 79, 0.08);
+    --gold-border: rgba(154, 123, 79, 0.2);
+    --text: #2c2826;
+    --text2: #3d3835;
+    --muted: #8a8078;
+    --muted2: #a69d94;
+    --display: 'Playfair Display', Georgia, serif;
+    --body: 'Inter', system-ui, sans-serif;
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.03);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.06), 0 1px 4px rgba(0, 0, 0, 0.04);
+    --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+html {
+    scroll-behavior: smooth
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--body);
+    font-weight: 300;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased
+}
+
+::selection {
+    background: var(--gold);
+    color: #fff
+}
+
+::-webkit-scrollbar {
+    width: 4px
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg)
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--gold);
+    border-radius: 2px
+}
