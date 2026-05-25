@@ -1001,9 +1001,9 @@ export default function App() {
             {['home', 'about', 'certifications', 'projects', 'contact'].map(s => (
               <button key={s} className={`nbtn ${active === s ? 'act' : ''}`} onClick={() => go(s)}>{s}</button>
             ))}
-            <button onClick={() => addToast('Resume PDF not added yet. Place your resume.pdf in the /public folder.', 'info')} className="nav-resume-btn" id="nav-resume-btn">
+            <a href="/resume.pdf" target="_blank" rel="noreferrer" className="nav-resume-btn" id="nav-resume-btn">
               <FileText size={14} /> Resume
-            </button>
+            </a>
           </div>
           <button className="mobbtn" onClick={() => setMenuOpen(!menuOpen)}>
             {menuOpen ? <X size={20} /> : <Menu size={20} />}
@@ -1013,9 +1013,9 @@ export default function App() {
           {['home', 'about', 'certifications', 'projects', 'contact'].map(s => (
             <button key={s} className="moblink" onClick={() => go(s)}>{s}</button>
           ))}
-          <button onClick={() => addToast('Resume PDF not added yet. Place your resume.pdf in the /public folder.', 'info')} className="moblink mob-resume-link">
+          <a href="/resume.pdf" target="_blank" rel="noreferrer" className="moblink mob-resume-link">
             <FileText size={14} style={{ display: 'inline', marginRight: '0.4rem' }} /> Resume
-          </button>
+          </a>
         </div>
       </nav>
 
