@@ -931,6 +931,7 @@
   color: var(--muted);
   line-height: 1.75;
   margin-bottom: 1.25rem;
+  white-space: pre-line;
   position: relative;
   z-index: 1
 }
