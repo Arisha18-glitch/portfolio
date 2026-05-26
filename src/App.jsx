@@ -47,7 +47,7 @@ const defaultProjects = [
   {
     title: 'AURA — Audio Visual Response',
     desc: '• Voice-responsive embedded system for audio-visual feedback\n• Integrates AI speech recognition with on-device hardware control\n• Built by a 6-member all-women engineering team',
-    highlights: ['Voice input processed via Python Whisper model', 'Animated LCD display with response output', 'Speaker module for audio feedback', 'Developed by a 6-member all-women engineering team'],
+    highlights: ['Voice input processed via Python Whisper model', 'Animated LCD display with response output', 'Speaker module for audio feedback'],
     tech: ['Arduino Mega', 'Arduino Nano', 'Python', 'Whisper', 'LCD', 'Embedded Systems'],
     image: '/demos/aura.png', demoType: null, demoUrl: '', liveLink: null,
     githubLink: 'https://github.com/Arisha18-glitch/Aura-voice-to-text-assistant',
