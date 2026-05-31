@@ -88,10 +88,13 @@ const defaultProjects = [
 ]
 
 const skillGroups = [
-  { label: 'Languages', skills: ['Python', 'C++', 'Dart', 'JavaScript', 'PHP', 'Assembly (MASM)'] },
-  { label: 'Frameworks & Tools', skills: ['Flask', 'Flutter', 'React', 'Laravel', 'Streamlit', 'Three.js', 'OpenCV'] },
-  { label: 'AI & Machine Learning', skills: ['XGBoost', 'Random Forest', 'Scikit-learn', 'Transformers', 'NLP', 'GPT-2'] },
-  { label: 'Databases & Cloud', skills: ['MongoDB', 'Firebase', 'Firestore', 'MySQL'] },
+  { label: 'Languages', skills: ['Python', 'C++', 'Java', 'Dart', 'Data Structures & Algorithms'] },
+  { label: 'Web & Backend', skills: ['HTML5', 'CSS3', 'JavaScript', 'React.js', 'Vite', 'Express.js', 'Flask', 'Socket.io'] },
+  { label: 'AI & Machine Learning', skills: ['Scikit-learn', 'XGBoost', 'PyTorch', 'GPT-2', 'TinyLlama', 'Gemini API', 'Groq API', 'Stable Diffusion XL', 'QLoRA', 'PEFT', 'Unsloth', 'Ollama', 'FastAPI', 'Generative AI'] },
+  { label: 'Data & DB', skills: ['Pandas', 'NumPy', 'Plotly', 'PostgreSQL', 'MongoDB', 'Redis', 'Firebase', 'Firestore', 'MySQL'] },
+  { label: 'Mobile', skills: ['Flutter', 'Android Studio', 'Provider', 'Dart'] },
+  { label: 'Embedded', skills: ['Arduino Mega', 'Arduino Nano', 'Python Whisper', 'Embedded C++'] },
+  { label: 'Tools', skills: ['Git', 'GitHub', 'Jira', 'VS Code', 'Streamlit', 'Three.js', 'OpenCV', 'pdfplumber'] }
 ]
 
 const certifications = [
@@ -118,7 +121,7 @@ const certifications = [
 ]
 
 const marqueeItems = ['Flutter', 'Python', 'Machine Learning', 'Firebase', 'React', 'Three.js', 'Arduino', 'XGBoost', 'Streamlit', 'C++', 'OpenCV', 'NLP']
-const roles = ['Software Engineer', 'AI Enthusiast', 'Mobile App Developer', 'ML Engineer', 'Full-Stack Builder']
+const roles = ['AI/ML Engineering', 'Generative AI', 'LLM Fine-Tuning', 'RAG Systems', 'Cybersecurity ML']
 
 /* ═══════════════════════════════════════
    TOAST SYSTEM
@@ -340,12 +343,12 @@ function AnimatedStat({ value, label }) {
 /* ═══════════════════════════════════════
    PROJECT IMAGE with skeleton loader
    ═══════════════════════════════════════ */
-function ProjectImage({ src, alt }) {
+function ProjectImage({ src, alt, onClick }) {
   const [loaded, setLoaded] = useState(false)
   const [error, setError] = useState(false)
 
   return (
-    <div className="pimg-wrap">
+    <div className="pimg-wrap" onClick={onClick} style={{ cursor: onClick ? 'pointer' : 'default' }}>
       {!loaded && !error && <div className="pimg-skeleton" />}
       {!error && src ? (
         <img src={src} alt={alt} className={`pimg ${loaded ? 'pimg-loaded' : ''}`}
@@ -1027,13 +1030,11 @@ export default function App() {
             <h2 className="hero-greeting">Hi There,</h2>
             <h1 className="hero-name">I'm Syeda <em>Arisha Hassan</em></h1>
             <div className="hero-typing">
-              <span className="type-static">I Am Into&nbsp;</span>
+              <span className="type-static">I Am Into:&nbsp;</span>
               <Typewriter words={roles} speed={90} pause={1800} />
             </div>
             <p className="hero-desc">
-              Building intelligent systems from machine learning models and embedded
-              hardware to mobile apps and AI-powered web experiences. Currently a 6th semester
-              Software Engineer.
+              I build AI systems that ship. Fine-tuned and deployed LLMs on Hugging Face, built a cybersecurity ML system at 99.57% accuracy, and designed RAG pipelines that run fully offline — no API, no cloud dependency. Currently working in Generative AI, turning research-level concepts into production-ready systems.
             </p>
             <div className="hero-btns">
               <button className="bgold" onClick={() => go('about')}>About Me <ChevronDown size={15} /></button>
@@ -1083,9 +1084,11 @@ export default function App() {
           </FadeIn>
           <div className="agrid">
             <FadeIn delay={100}>
-              <p className="ap">I'm <strong>Syeda Arisha Hassan</strong>, a Software Engineer with a broad foundation across AI, systems programming, mobile development, and web technologies.</p>
-              <p className="ap">My work spans <strong>machine learning pipelines</strong>, <strong>real-time 3D web experiences</strong>, <strong>embedded systems</strong>, and <strong>full-stack mobile apps</strong>. I approach every project with a focus on clean architecture and thoughtful design.</p>
-              <p className="ap">From a DDoS detection system to a voice-responsive embedded assistant, Each project reflects a commitment to technical depth and practical impact.</p>
+              <p className="ap">I'm <strong>Syeda Arisha Hassan</strong>, an AI/ML & Generative AI Developer who builds systems that go from idea to deployment.</p>
+              <p className="ap">I specialize in LLM fine-tuning, RAG pipeline design, cybersecurity ML, and full-stack AI integration. My focus is not on building demos — it's on shipping systems that work in the real world under real constraints.</p>
+              <p className="ap">Most recently, I fine-tuned TinyLlama 1.1B on 5,030 custom CS teaching conversations using QLoRA, reducing training loss from 2.34 to 0.55, and deployed the model live on Hugging Face. Before that, I fine-tuned Llama 3 8B on 33,955 medical examples — updating only 0.52% of parameters while maintaining model quality. I also built a fully local RAG-powered AI assistant that runs 100% offline with multi-model switching across Mistral, Phi-3, and Gemma — zero API dependency, zero data leaving the machine.</p>
+              <p className="ap">On the cybersecurity side, my DDoS detection system achieved 99.57% accuracy across 9 traffic categories on 125,170 real network flows.</p>
+              <p className="ap">I work across the full stack — from model training and quantization to Flutter mobile apps, real-time collaborative editors, and embedded AI systems. Every project is built with production in mind.</p>
               <div className="stats">
                 <AnimatedStat value="10+" label="Projects Completed" />
                 <AnimatedStat value="99.57%" label="DDoS Detection Accuracy" />
@@ -1140,7 +1143,9 @@ export default function App() {
             {projects.map((p, i) => (
               <FadeIn key={p._id || p.title} delay={i * 100}>
                 <div className="pcard" onMouseMove={handleCardMouse}>
-                  <ProjectImage src={p.image} alt={p.title} />
+                  <ProjectImage src={p.image} alt={p.title} onClick={() => {
+                    if (p.image) setDemoModal({ open: true, title: p.title, demoType: 'image', demoUrl: p.image })
+                  }} />
                   <div className="pidx">{String(i + 1).padStart(2, '0')}</div>
 
                   <div className="ptitle">{p.title}</div>
